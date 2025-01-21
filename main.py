@@ -17,9 +17,9 @@ import openai
 openai.api_key = os.getenv("OPENAI_API_KEY")
 def setup_driver():
     options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
-    options.add_argument("--disable-notifications")
-    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
     try:
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         log_environment()
